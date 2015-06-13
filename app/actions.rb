@@ -8,7 +8,13 @@ get '/messages' do
   erb :'messages/index'
 end 
 
+
+get '/messages/new' do
+  erb :'messages/new'
+end
+
 post '/messages' do
+  # binding.pry
   @message = Message.new(
     title: params[:title],
     content: params[:content],
@@ -17,3 +23,4 @@ post '/messages' do
   @message.save
   redirect '/messages'
 end
+
